@@ -22,3 +22,28 @@ console.log(typeof a);
 let Person=true;
 console.log(Person);
 console.log(typeof Person);
+
+//5.null
+
+let  n=null;
+console.log(n);
+console.log(typeof n);
+
+//6.bigint
+
+let num=1234567895;
+console.log(num)
+console.log(typeof num);
+
+//7.symbol
+
+
+//8.Object
+
+let product={
+    name:"pen",
+    price:10
+}
+
+console.log(product);
+console.log(typeof product)
