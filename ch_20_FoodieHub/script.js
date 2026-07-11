@@ -96,3 +96,21 @@ function showDish() {
 
 showDish();
 
+// //localtroge consept
+
+// const data = {
+//     name: "Dal Makhani",
+//     price: 250,
+//     qty: 1
+// };
+
+// // Store Object
+// localStorage.setItem("data", JSON.stringify(data));
+
+// // Get Object
+// const dishData = JSON.parse(localStorage.getItem("data"));
+
+// console.log(dishData);
+
+// // Display
+// document.getElementById("name").innerHTML = dishData.name;
