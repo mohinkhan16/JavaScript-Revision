@@ -114,3 +114,21 @@ showDish();
 
 // // Display
 // document.getElementById("name").innerHTML = dishData.name;
+
+function addToCart(id) {
+    try {
+        let product = dishItems.find((p) => p.id === id);
+
+        if (product) {
+            product.qty++;
+        } else {
+            const item = items.find((p) => p.id === id);
+            dishItems.push({ ...item, qty: 1 });
+        }
+
+        localStorage.setItem("dishdata", JSON.stringify(dishItems));
+        alert("Item Added Successfully");
+    } catch (error) {
+        console.log(error);
+    }
+}
