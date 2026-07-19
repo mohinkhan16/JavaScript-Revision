@@ -1,20 +1,14 @@
-.dish-card{
-    height: 100%;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.dish-card img {
-    width: 100%;
-    height: 220px;
-    object-fit: contain;
-    
+.product-card {
+  min-height: 450px;
 }
 
-.card-body{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.card-body button{
-    width: 100%;
+.product-card img {
+  height: 300px;
+  object-fit: cover;
 }
