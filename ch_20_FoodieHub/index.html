@@ -10,7 +10,7 @@
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
-        <link rel="stylesheet" href="script.css">
+    <link rel="stylesheet" href="script.css" />
   </head>
   <body>
     <header class="container">
@@ -35,27 +35,89 @@
               </li>
               <li class="nav-item">
                 <button
-                  class="btn btn-outline-primary"
+                  class="btn btn-outline-primary position-relative"
                   onclick="showCartModal()"
                 >
                   Cart
+                  <span
+                    id="cartBadge"
+                    class="badge rounded-pill bg-danger position-absolute top-0 start-100 translate-middle"
+                    style="display: none"
+                    >0</span
+                  >
+                </button>
+              </li>
+              <li class="nav-item ms-2">
+                <button
+                  id="darkModeToggle"
+                  class="btn btn-outline-secondary"
+                  onclick="toggleDarkMode()"
+                >
+                  🌙 Dark
                 </button>
               </li>
             </ul>
-            <form class="d-flex" role="search">
+            <form class="d-flex" role="search" onsubmit="return false;">
               <input
                 class="form-control me-2"
                 type="search"
+                id="searchInput"
                 placeholder="Search"
                 aria-label="Search"
+                oninput="searchProducts()"
               />
-              <button class="btn btn-outline-success" type="submit">
+              <button
+                class="btn btn-outline-success"
+                type="submit"
+                onclick="searchProducts()"
+              >
                 Search
               </button>
             </form>
           </div>
         </div>
       </nav>
+
+      <div
+        class="d-flex flex-wrap gap-2 justify-content-center mt-3"
+        id="category-filters"
+      >
+        <button
+          class="btn btn-sm btn-dark category-btn active"
+          data-category="All"
+          onclick="filterCategory('All')"
+        >
+          All
+        </button>
+        <button
+          class="btn btn-sm btn-outline-dark category-btn"
+          data-category="Starters"
+          onclick="filterCategory('Starters')"
+        >
+          Starters
+        </button>
+        <button
+          class="btn btn-sm btn-outline-dark category-btn"
+          data-category="Main Course"
+          onclick="filterCategory('Main Course')"
+        >
+          Main Course
+        </button>
+        <button
+          class="btn btn-sm btn-outline-dark category-btn"
+          data-category="Dessert"
+          onclick="filterCategory('Dessert')"
+        >
+          Dessert
+        </button>
+        <button
+          class="btn btn-sm btn-outline-dark category-btn"
+          data-category="Salad"
+          onclick="filterCategory('Salad')"
+        >
+          Salad
+        </button>
+      </div>
     </header>
 
     <main>
@@ -92,17 +154,22 @@
             </div>
             <div class="modal-footer d-flex justify-content-between">
               <h3 id="total"></h3>
-              <div><button
-                type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
-              <button type="button" class="btn btn-success" onclick="checkOut()">
-               check out
-              </button></div>
-              
+              <div>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-success"
+                  onclick="checkOut()"
+                >
+                  check out
+                </button>
+              </div>
             </div>
           </div>
         </div>
