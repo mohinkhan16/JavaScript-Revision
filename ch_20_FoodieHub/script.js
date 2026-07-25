@@ -17,8 +17,6 @@ let localCartItem = JSON.parse(localStorage.getItem("cartList")) || [];
 
 console.log("localCartItem", localCartItem);
 
-// ---------------- PRODUCT DISPLAY ----------------
-
 function showProduct(list = items) {
   const productList = document.getElementById("product-list");
 
@@ -48,11 +46,8 @@ function showProduct(list = items) {
 
 showProduct();
 
-// ---------------- CATEGORY FILTER ----------------
-
 function filterCategory(category) {
   try {
-    // highlight active button
     document.querySelectorAll(".category-btn").forEach((btn) => {
       btn.classList.remove("active");
     });
@@ -66,7 +61,6 @@ function filterCategory(category) {
       showProduct(filtered);
     }
 
-    // clear search box so filter and search don't fight each other
     const searchInput = document.getElementById("searchInput");
     if (searchInput) searchInput.value = "";
   } catch (error) {
@@ -74,14 +68,12 @@ function filterCategory(category) {
   }
 }
 
-// ---------------- SEARCH ----------------
 
 function searchProducts() {
   try {
     const searchInput = document.getElementById("searchInput");
     const query = searchInput.value.trim().toLowerCase();
 
-    // reset category highlight since search overrides it
     document.querySelectorAll(".category-btn").forEach((btn) => {
       btn.classList.remove("active");
     });
@@ -102,8 +94,6 @@ function searchProducts() {
     console.log(error);
   }
 }
-
-// ---------------- CART ----------------
 
 function addToCart(id) {
   try {
@@ -235,8 +225,6 @@ function total() {
   console.log("total amount", totalAmount);
 }
 
-// ---------------- CART BADGE ----------------
-
 function updateCartBadge() {
   try {
     const badge = document.getElementById("cartBadge");
@@ -255,7 +243,6 @@ function updateCartBadge() {
   }
 }
 
-// run once on page load so badge shows correct count from localStorage
 updateCartBadge();
 
 function checkOut() {
@@ -283,7 +270,6 @@ function checkOut() {
   }
 }
 
-// ---------------- DARK MODE ----------------
 
 function toggleDarkMode() {
   try {
@@ -304,13 +290,12 @@ function updateDarkModeButton(isDark) {
   btn.innerText = isDark ? "☀️ Light" : "🌙 Dark";
 }
 
-// apply saved dark mode preference on load
 (function initDarkMode() {
   const saved = localStorage.getItem("darkMode");
   if (saved === "on") {
     document.body.classList.add("dark-mode");
   }
-  // run after DOM is ready since button may not exist yet at script load time
+  
   document.addEventListener("DOMContentLoaded", () => {
     updateDarkModeButton(document.body.classList.contains("dark-mode"));
   });

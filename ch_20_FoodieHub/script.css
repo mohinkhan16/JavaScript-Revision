@@ -13,13 +13,10 @@
   object-fit: cover;
 }
 
-/* ---------------- CATEGORY FILTER ---------------- */
 
 .category-btn.active {
   font-weight: 600;
 }
-
-/* ---------------- DARK MODE ---------------- */
 
 body.dark-mode {
   background-color: #121212;
@@ -60,4 +57,20 @@ body.dark-mode .form-control {
 
 body.dark-mode .form-control::placeholder {
   color: #aaa;
+}
+
+body.dark-mode #category-filters .category-btn {
+  color: #fff;
+  border-color: #fff;
+}
+
+body.dark-mode #category-filters .category-btn:hover {
+  background-color: #fff;
+  color: #121212;
+}
+
+body.dark-mode #category-filters .category-btn.active {
+  background-color: #0d6efd;
+  color: #fff;
+  border-color: #0d6efd;
 }
